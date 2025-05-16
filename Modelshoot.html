@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Photography Services - NR Photography</title>
+  <link rel="stylesheet" href="core-photography.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="index.html">
+      <img src="logo.png" alt="NR Photography Logo" height="40">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item active"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="text-center my-5">
+    <h1 class="display-4">Model Photoshoot</h1>
+    <p class="lead">Capture your best angles with our professional model photography services</p>
+  </header>
+
+  <!-- Services Section -->
+  <section class="container">
+    <div class="row">
+      <!-- Male Model Shoot -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="ms6.jpg" class="card-img-top" alt="Male Model Shoot">
+          <div class="card-body">
+            <h5 class="card-title">Male Model Shoot</h5>
+            <p class="card-text">Stylish and professional shoots tailored for aspiring and experienced male models.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Female Model Shoot -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="ms5.jpg" class="card-img-top" alt="Female Model Shoot">
+          <div class="card-body">
+            <h5 class="card-title">Female Model Shoot</h5>
+            <p class="card-text">Creative and elegant photo sessions designed to highlight individual personality and beauty.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beauty Photography -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="ms4.jpg" class="card-img-top" alt="Beauty Photography">
+          <div class="card-body">
+            <h5 class="card-title">Beauty Photography</h5>
+            <p class="card-text">Close-up shots emphasizing makeup, skin texture, and glamour with high-end retouching.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lifestyle Photography -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="ms3.jpg" class="card-img-top" alt="Lifestyle Photography">
+          <div class="card-body">
+            <h5 class="card-title">Lifestyle Photography</h5>
+            <p class="card-text">Natural and candid storytelling through visuals that reflect daily life and personality.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fitness Photography -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="ms2.jpg" class="card-img-top" alt="Fitness Photography">
+          <div class="card-body">
+            <h5 class="card-title">Fitness Photography</h5>
+            <p class="card-text">Action shots and physique highlights crafted for athletes, bodybuilders, and fitness influencers.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commercial Photography -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="ms1.jpg" class="card-img-top" alt="Commercial Photography">
+          <div class="card-body">
+            <h5 class="card-title">Commercial/Advertising Photography</h5>
+            <p class="card-text">High-impact visuals for marketing, brand promotion, and product advertising campaigns.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-4">
+      <button class="btn btn-primary add-to-cart">Add Model Shoot Services to Cart</button>
+    </div>
+  </section>
+<script>
+  document.querySelector(".add-to-cart").addEventListener("click", function () {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if already in cart
+    const existing = cart.find(item => item.id === "model-shoot");
+    if (!existing) {
+      cart.push({
+        id: "model-shoot",
+        title: "Model Shoot Services",
+        description: "We shoot in professional light and provide high-quality, edited images",
+        price: 300, // Adjust the price as needed
+        quantity: 1,
+        image: "ms6.jpg" // Use a representative image
+      });
+    } else {
+      existing.quantity += 1;
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Model Shoot Services added to cart!");
+  });
+</script>
+
+</body>
+</html>
