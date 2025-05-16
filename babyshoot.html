@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baby Photoshoot - NR Photography</title>
+  <link rel="stylesheet" href="core-photography.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="index.html">
+      <img src="logo.png" alt="NR Photography Logo" height="40">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item active"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="text-center my-5">
+    <h1 class="display-4">Baby Shoot</h1>
+    <p class="lead">Capture every giggle, step, and smile – let us turn your baby's magical moments into timeless memories.</p>
+  </header>
+
+  <!-- Services Section -->
+  <section class="container">
+    <div class="row">
+      
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="b4.jpg" class="card-img-top" alt="Baby Shower">
+          <div class="card-body">
+            <h5 class="card-title">Baby Shower</h5>
+            <p class="card-text">Celebrate the joy of new beginnings with beautiful, themed baby shower coverage.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="b3.jpg" class="card-img-top" alt="Cradle Ceremony">
+          <div class="card-body">
+            <h5 class="card-title">Cradle Ceremony</h5>
+            <p class="card-text">Graceful and culturally rich photographs capturing your baby's naming or cradle event.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="b2.jpg" class="card-img-top" alt="Pre-Birthday Shoot">
+          <div class="card-body">
+            <h5 class="card-title">Pre-Birthday Shoot</h5>
+            <p class="card-text">Adorable setups and playful moments leading up to your baby's big birthday celebration.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="b1.jpg" class="card-img-top" alt="Birthday Party">
+          <div class="card-body">
+            <h5 class="card-title">Birthday Party</h5>
+            <p class="card-text">Candid and joyful birthday memories — from cake cutting to fun-filled games and guests.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-4 mb-5">
+      <button id="addToCartBaby" class="btn add-to-cart">Add Baby Photoshoot to Cart</button>
+    </div>
+  </section>
+<script>
+  document.getElementById("addToCartBaby").addEventListener("click", function () {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existing = cart.find(item => item.id === "baby-photoshoot");
+    if (!existing) {
+      cart.push({
+        id: "baby-photoshoot",
+        title: "Baby Photoshoot",
+        description: "Capture baby showers, cradle ceremonies, pre-birthdays, and birthday parties.",
+        price: 200, // Adjust the price as needed
+        quantity: 1,
+        image: "b2.jpg" // You can pick any baby photo thumbnail
+      });
+    } else {
+      existing.quantity += 1;
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Baby Photoshoot service added to cart!");
+  });
+</script>
+
+
+</body>
+</html>

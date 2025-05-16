@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Additional Services - NR Photography</title>
+  <link rel="stylesheet" href="additional-services.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="index.html">
+      <img src="logo.png" alt="NR Photography Logo" height="40">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item active"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Additional Services Section -->
+  <section class="additional-services py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Additional Services</h2>
+
+      <div class="additional-services-box mb-4">
+        <img src="as1.jpg" alt="Photo Editing" class="service-img">
+        <h4>Photo Editing & Retouching</h4>
+        <p>Enhancing images for optimal quality.</p>
+        <button class="btn btn-primary add-to-cart"
+          data-id="photo-editing"
+          data-title="Photo Editing & Retouching"
+          data-description="Enhancing images for optimal quality."
+          data-price="50"
+          data-image="as1.jpg">Add to Cart</button>
+      </div>
+
+      <div class="additional-services-box mb-4">
+        <img src="as2.jpg" alt="Prints & Albums" class="service-img">
+        <h4>Prints & Albums</h4>
+        <p>High-quality physical copies of photographs in various formats.</p>
+        <button class="btn btn-primary add-to-cart"
+          data-id="prints-albums"
+          data-title="Prints & Albums"
+          data-description="High-quality physical copies of photographs in various formats."
+          data-price="100"
+          data-image="as2.jpg">Add to Cart</button>
+      </div>
+
+      <div class="additional-services-box mb-4">
+        <img src="as3.jpg" alt="Regular Videography" class="service-img">
+        <h4>Regular Videography</h4>
+        <ul>
+          <li>Straightforward Coverage: One or two cameras document your event as it happens.</li>
+          <li>Clean Editing: Tight cuts, simple transitions, minimal grading.</li>
+          <li>Quick Turnaround: Ideal for announcements, training, or recaps.</li>
+          <li>Deliverables: Full video, teaser clips, raw clips on request.</li>
+        </ul>
+        <button class="btn btn-primary add-to-cart"
+          data-id="regular-videography"
+          data-title="Regular Videography"
+          data-description="Straightforward event coverage with clean editing and quick delivery."
+          data-price="250"
+          data-image="as3.jpg">Add to Cart</button>
+      </div>
+
+      <div class="additional-services-box mb-4">
+        <img src="as4.jpg" alt="Cinematic Videography" class="service-img">
+        <h4>Cinematic Videography</h4>
+        <ul>
+          <li>Story-driven Approach: Narrative arc like a feature film.</li>
+          <li>Film-style Aesthetics: Cinema lenses, gimbals, color grading.</li>
+          <li>Multi-camera Setups: Seamless multi-angle coverage.</li>
+          <li>Audio Design: Professionally captured audio and music.</li>
+          <li>Deliverables: Highlight film, full-length edit, social cuts, raw footage.</li>
+        </ul>
+        <button class="btn btn-primary add-to-cart"
+          data-id="cinematic-videography"
+          data-title="Cinematic Videography"
+          data-description="Cinematic filming with storytelling, professional editing and sound design."
+          data-price="600"
+          data-image="as4.jpg">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer bg-dark text-white text-center py-3">
+    <div class="footer-container">
+      <p>&copy; 2025 NR Photography. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html" class="text-white">Home</a> |
+        <a href="about.html" class="text-white">About</a> |
+        <a href="services.html" class="text-white">Services</a> |
+        <a href="portfolio.html" class="text-white">Portfolio</a> |
+        <a href="contact.html" class="text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Add to Cart Script -->
+  <script>
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const id = button.getAttribute("data-id");
+        const title = button.getAttribute("data-title");
+        const description = button.getAttribute("data-description");
+        const price = parseFloat(button.getAttribute("data-price"));
+        const image = button.getAttribute("data-image");
+
+        const existingItem = cart.find(item => item.id === id);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({
+            id,
+            title,
+            description,
+            price,
+            quantity: 1,
+            image
+          });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`${title} added to cart!`);
+      });
+    });
+  </script>
+
+</body>
+</html>
