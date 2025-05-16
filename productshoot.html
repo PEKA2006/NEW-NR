@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Shoot - NR Photography</title>
+  <link rel="stylesheet" href="core-photography.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="index.html">
+      <img src="logo.png" alt="NR Photography Logo" height="40">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item active"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="text-center my-5">
+    <h1 class="display-4">Product Shoot</h1>
+    <p class="lead">Showcase your products with precision and creativity through our expert photography services.</p>
+  </header>
+
+  <!-- Services Section -->
+  <section class="container">
+    <div class="row">
+      
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="pp1.jpg" class="card-img-top" alt="E-Commerce Product Photography">
+          <div class="card-body">
+            <h5 class="card-title">E-Commerce Product Photography</h5>
+            <p class="card-text">Clean and professional images optimized for online stores, boosting product appeal and sales.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="pp2.jpg" class="card-img-top" alt="Styled Product Photography">
+          <div class="card-body">
+            <h5 class="card-title">Styled Product Photography</h5>
+            <p class="card-text">Visually attractive setups to present your product in a lifestyle or themed environment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="pp3.jpg" class="card-img-top" alt="360-Degree Product Photography">
+          <div class="card-body">
+            <h5 class="card-title">360-Degree Product Photography</h5>
+            <p class="card-text">Interactive, all-angle views for digital catalogs, giving customers a complete visual experience.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="pp4.jpg" class="card-img-top" alt="Macro Product Photography">
+          <div class="card-body">
+            <h5 class="card-title">Macro Product Photography</h5>
+            <p class="card-text">High-detail close-up shots perfect for jewelry, cosmetics, and intricate design elements.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="ms1.jpg" class="card-img-top" alt="Packaging and Unboxing Photography">
+          <div class="card-body">
+            <h5 class="card-title">Packaging & Unboxing Photography</h5>
+            <p class="card-text">Capture product packaging, unboxing experiences, and delivery appeal for marketing.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-4 mb-5">
+      <button class="btn btn-primary btn-lg add-to-cart">Add Product Shoot Package to Cart</button>
+    </div>
+  </section>
+  <script>
+  document.querySelector(".add-to-cart").addEventListener("click", function () {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if already in cart
+    const existing = cart.find(item => item.id === "product-shoot");
+    if (!existing) {
+      cart.push({
+        id: "product-shoot",
+        title: "Product Shoot Package",
+        description: "Includes e-commerce, styled, 360-degree, macro, and packaging product photography.",
+        price: 250, // you can adjust this price
+        quantity: 1,
+        image: "pp1.jpg"
+      });
+    } else {
+      existing.quantity += 1; // if already in cart, just increase quantity
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Product Shoot Package added to cart!");
+  });
+</script>
+
+</body>
+</html>
