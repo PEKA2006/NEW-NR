@@ -48,10 +48,10 @@
       <li><strong>Gallery Delivery:</strong> A curated online gallery with 50–200 fully edited, print-ready images; slideshows and albums available.</li>
     </ul>
   </section>
-  
   <section class="cart-section">
-     <button class="btn btn-lg btn-gradient" onclick="addToCart()">Add to Cart</button>
-  </section class="cart-section">
+   <button class="btn btn-lg btn-gradient" onclick="addToCart()">Add to Cart</button>
+</section>
+
 <!-- Candid Photography Gallery Section -->
 <section class="gallery-section">
   <h2 class="text-center mb-4">Candid Photography Samples</h2>
@@ -64,11 +64,10 @@
     <img src="CD1.jpg" alt="Candid Moment 6">
   </div>
 </section>
+<section class="cart-section">
+   <button class="btn btn-lg btn-gradient" onclick="addToCart()">Add to Cart</button>
+</section>
 
-  <section class="cart-section">
- <button class="btn btn-lg btn-gradient" onclick="addToCart()">Add to Cart</button>
-
-  </section>
   <!-- Footer -->
 <footer class="site-footer">
   <div class="footer-container">
@@ -92,19 +91,27 @@
 </footer>
 <script>
   function addToCart() {
-    // Simulate adding the item to the cart (you can integrate with real cart logic later)
-    alert("Candid Photography service has been added to your cart!");
-    
-    // Optional: You can also store cart data in localStorage
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push({
-      service: "Candid Photography",
-      price: "₹X,XXX", // Add actual price if you want
-      id: "candid001"
-    });
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existing = cart.find(item => item.id === "candid-photography");
+    if (!existing) {
+      cart.push({
+        id: "candid-photography",
+        title: "Candid Photography",
+        description: "Freeze real, unscripted moments and genuine emotions.",
+        price: 300, // You can change the price if needed
+        quantity: 1,
+        image: "CD1.jpg"
+      });
+    } else {
+      existing.quantity += 1;
+    }
+
     localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Candid Photography service added to cart!");
   }
 </script>
+
 
 
 </body>
