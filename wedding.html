@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Photography Services - NR Photography</title>
+  <link rel="stylesheet" href="core-photography.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="index.html">
+      <img src="logo.png" alt="NR Photography Logo" height="40">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item active"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+ <header class="text-center my-5">
+  <h1 class="display-4">Wedding Photography</h1>
+  <p class="lead">Preserve every magical moment with our expert wedding photography services</p>
+</header>
+
+  <!-- Services Section -->
+  <section class="container">
+    <div class="row">
+    
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="w1.jpg" class="card-img-top" alt=" Engagement shoot">
+          <div class="card-body">
+            <h5 class="card-title">Engagement Shoot</h5>
+<p class="card-text">Romantic and beautifully styled engagement sessions capturing your love story before the big day.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="w2.jpg" class="card-img-top" alt="Pre wedding shoot">
+          <div class="card-body">
+            <h5 class="card-title">Pre-Wedding Shoot</h5>
+<p class="card-text">Creative and candid photo sessions at scenic locations to celebrate your journey together.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="w11.jpg" class="card-img-top" alt="Formalities">
+          <div class="card-body">
+            <h5 class="card-title">Wedding Rituals</h5>
+<p class="card-text">Capture all the traditional and emotional moments of your wedding ceremonies with elegance and detail.</p>
+          </div>
+        </div>
+      </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="w4.jpg" class="card-img-top" alt="marriage s">
+          <div class="card-body">
+           <h5 class="card-title">Wedding Day Coverage</h5>
+<p class="card-text">From the bridal entry to the final vows, we document your big day in its full glory and emotion.</p>
+
+          </div>
+        </div>
+      </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="w5.jpg" class="card-img-top" alt="Reception">
+          <div class="card-body">
+           <h5 class="card-title">Reception Coverage</h5>
+<p class="card-text">Glamorous and joyful moments from your reception night with artistic storytelling photography.</p>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <img src="w6.jpg" class="card-img-top" alt="Post wedding">
+          <div class="card-body">
+            <h5 class="card-title">Post-Wedding Shoot</h5>
+<p class="card-text">Relaxed and romantic sessions to celebrate your new beginning as a married couple.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Call to Action -->
+    <!-- Call to Action -->
+<div class="text-center mt-4">
+  <button class="btn btn-primary add-to-cart" id="addToCartWedding">Add Wedding Photography Package to Cart</button>
+</div>
+<script>
+  // Wedding Photography Add to Cart Logic
+  document.getElementById("addToCartWedding").addEventListener("click", function () {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if already in cart
+    const existing = cart.find(item => item.id === "wedding-photography");
+    if (!existing) {
+      cart.push({
+        id: "wedding-photography",
+        title: "Wedding Photography Package",
+        description: "Engagement, Pre-Wedding, Wedding Day, Reception & Post-Wedding shoots.",
+        price: 600, // Change price as needed
+        quantity: 1,
+        image: "w1.jpg"
+      });
+    } else {
+      existing.quantity += 1;
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Wedding Photography package added to cart!");
+  });
+</script>
+
+</body>
+</html>
